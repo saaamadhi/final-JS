@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div>
+        <button onclick="document.location='main.html'">Back</button>
+    </div>
+    <div>
+        <form novalidate autocomplete="off">
+            <label>
+                Name
+                <input type="text" id="user-name" required name="name"/>
+            </label>
+            <label>
+                Phone
+                <input type="tel" id="user-phone" required name="phone"/>
+            </label>
+            <label>
+                Salary
+                <input type="number" id="user-salary" required name="salary"/>
+            </label>
+            <label>
+                Department
+                <select id="select-depts"></select>
+            </label>
+            <div>
+                <button id="submit">Save</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="editUser.js"></script>
+</body>
+</html>
