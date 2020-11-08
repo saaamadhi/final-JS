@@ -1,0 +1,12 @@
+[
+    {"id": 0, "parentId": null, "name": "ABC"},
+    {"id": 1, "parentId": 0, "name": "IT Dept"},
+    {"id": 2, "parentId": 0, "name": "QA Dept"},
+    {"id": 3, "parentId": 1, "name": "IT Head"},
+    {"id": 4, "parentId": 2, "name": "QA Head"},
+    {"id": 5, "parentId": 3, "name": "Tech Lead"},
+    {"id": 6, "parentId": 4, "name": "QA Lead"},
+    {"id": 7, "parentId": 5, "name": "Software Engineer"},
+    {"id": 8, "parentId": 6, "name": "QA Engineer"},
+    {"id": 9, "parentId": 6, "name": "Trainee"}
+]
