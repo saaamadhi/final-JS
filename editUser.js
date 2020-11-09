@@ -1,3 +1,4 @@
+import {isNameCorrect, isPhoneCorrect, isSalaryCorrect} from './validation';
 const employee = JSON.parse(localStorage.getItem('employeesArr'));
 const emplId = JSON.parse(localStorage.getItem('employeeId'));
 
@@ -61,14 +62,24 @@ function setPlaceholder(arr){
 setPlaceholder(employee);
 
 saveBtn.addEventListener('click', (event) => {
+    let valid;
     event.preventDefault();
         employee.forEach(empl => {
             if(empl.id === emplId){
-                empl.name = userName.value;
-                empl.phone = userPhone.value;
-                empl.salary = userSalary.value;
+                empl.name = isNameCorrect(userName.value);
+                empl.phone = isPhoneCorrect(userPhone.value);
+                empl.salary = isSalaryCorrect(userSalary.value);
                 empl.dept_id = getIdOfDept(companyFromLS);
+                if((empl.name === true || empl.name === false) ||
+                (empl.phone === true || empl.phone === false) ||
+                (empl.salary ===true || empl.salary === false)){
+                    valid = false;
+                }else {
+                    valid = true;
+                }
             }
         });
-    localStorage.setItem('employeesArr', JSON.stringify(employee));
+        if(valid === true){
+            localStorage.setItem('employeesArr', JSON.stringify(employee));
+        }
 })
