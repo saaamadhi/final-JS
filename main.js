@@ -6,7 +6,7 @@ let employeeLS = JSON.parse(localStorage.getItem('employeesArr'));
 if(!employeeLS){
     localStorage.setItem('employeesArr', JSON.stringify(employees));
     employeeLS = JSON.parse(localStorage.getItem('employeesArr'));
-} else if(employeeLS === undefined || employeeLS ===null){
+} else if(employeeLS === undefined || employeeLS === null){
     localStorage.removeItem(employeeLS);
 }
 
@@ -207,18 +207,22 @@ const table = document.querySelector('table');
 
 table.addEventListener('click', event => {
     if(event.target.tagName === 'BUTTON'){
-        const tRow = event.target.parentElement.parentElement;
-        const tRowAttribute = tRow.getAttribute('data-empl-id');
+        const isAgree = confirm('Do you really want to dellete user?');
+        if(isAgree){
+            const tRow = event.target.parentElement.parentElement;
+            const tRowAttribute = tRow.getAttribute('data-empl-id');
 
-        const idOFEmpl = JSON.parse(tRowAttribute);
+            const idOFEmpl = JSON.parse(tRowAttribute);
 
-        let employeesFromLS = JSON.parse(localStorage.getItem('employeesArr'));
-        const newEmplArr = employeesFromLS.filter(el => el.id !== idOFEmpl);
+            let employeesFromLS = JSON.parse(localStorage.getItem('employeesArr'));
+            const newEmplArr = employeesFromLS.filter(el => el.id !== idOFEmpl);
 
-        localStorage.setItem('employeesArr', JSON.stringify(newEmplArr));
+            localStorage.setItem('employeesArr', JSON.stringify(newEmplArr));
 
-        const tBody = tRow.parentElement;
-        tBody.removeChild(tRow);
+            const tBody = tRow.parentElement;
+            tBody.removeChild(tRow);
+        }
+      return;  
     }
 
     if(event.target.tagName === 'A'){
